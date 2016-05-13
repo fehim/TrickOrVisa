@@ -1,0 +1,43 @@
+html, body {
+	background-color: #262323;
+}
+
+.header {
+	margin-top: 30px;
+	margin-bottom: 100px;
+}
+
+.nav li {
+	float:left;
+	font-size: 25px;
+}
+
+.nav a {
+	color: #fff;
+}
+
+.nav>li>a:focus, .nav>li>a:hover {
+	background-color: transparent;
+}
+
+#logo {
+	color: #fff;
+}
+
+#popup {
+	display:none;
+	max-width:200px;
+	border:15px solid transparent;
+	border-radius: 5px;
+	background-color: #818FF0;
+	color: #fff;
+}
+
+#popup .name {
+	text-align:center;
+	margin-top:0;
+}
+
+#popup a {
+	color: #fff;
+}

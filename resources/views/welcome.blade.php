@@ -34,12 +34,28 @@
                 font-size: 96px;
             }
         </style>
+        <script src="/js/d3.min.js"></script>
+        <script src="/js/topojson.min.js"></script>
+        <script src="/js/datamaps.world.min.js"></script>
+        <!-- <script src="/js//datamaps.world.hires.min.js"></script> -->
     </head>
     <body>
         <div class="container">
-            <div class="content">
+
+            <div id="map" style="position: relative; width: 500px; height: 300px;"></div>
+            <!-- <div class="content">
                 <div class="title">Laravel 5</div>
-            </div>
+            </div> -->
         </div>
+        <script>
+            var map = new Datamap({
+                element: document.getElementById('map'),
+                responsive: true
+            });
+
+            window.addEventListener('resize', function(event){
+                map.resize();
+            });
+        </script>
     </body>
 </html>
