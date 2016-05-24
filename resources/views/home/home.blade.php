@@ -9,12 +9,27 @@
 @stop
 
 @section('content')
+
+    <div class="selector">
+        <h3>I am from</h3>
+        <select id="change-country">
+            <option value="TR">Turkey</option>
+            <option value="RO">Romania</option>
+        </select>
+    </div>
+
     <div id="map" style="width: 100%;"></div>
 
+    <div id="tlkio" data-channel="trickorvisa" data-theme="theme--night" style="width:100%;height:400px;"></div><script async src="http://tlk.io/embed.js" type="text/javascript"></script>
+
     <div id="popup">
+        <button type="button" class="close" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
         <h2 class="name">Iceland</h2>
-        <p>Visa not required</p>
-        <p>You can stay 3 months in a 6 months period of time</p>
+        <div class="visa-info">
+
+        </div>
         <a href="#">You want more?</a>
     </div>
     <!-- position: relative; -->
@@ -30,74 +45,106 @@
  -->
     <script>
         $(function(){
-            $('#map').vectorMap({
+
+            var visaColors = {!! json_encode($visaRequirements) !!};
+            var visaInfo = {!! json_encode($visaInfo) !!};
+
+            var popup = $("#popup");
+            var oldRegion;
+            var map = new jvm.Map({
+                container: $('#map'),
                 map: 'world_mill',
                 backgroundColor: "#262323",
                 zoomOnScroll: false,
                 regionStyle: {
                   initial: {
-                    fill: '#59D9A4',
+                    fill: '#EF652C',
                     stroke: "none",
                     "stroke-width": 0,
                     "stroke-opacity": 1
                   },
                   hover: {
-                    fill: '#818FF0'
+                      fill: '#818FF0'
                   },
-                  selected: {
-                    fill: '#818FF0'
-                  }
+                    selected: {
+                      fill: '#818FF0',
+                      "fill-opacity": 0.8
+                    },
+                    selectedHover: {
+                        "fill-opacity": 0.6
+                    }
+                },
+                series: {
+                    regions: [{
+                        attribute: 'fill'
+                    }]
                 },
                 regionsSelectable: true,
                 regionsSelectableOne: true,
                 onRegionClick: function(e, code) {
-                    var oldRegion = window.localStorage.getItem('map-selected-region')
+                    //var oldRegion = window.localStorage.getItem('map-selected-region');
                     if (oldRegion == code) {
                         return false;
                     }
 
-                    $('#popup').css('left',event.pageX);      // <<< use pageX and pageY
-                    $('#popup').css('top',event.pageY);
-                    $('#popup').css('display','inline');     
-                    $("#popup").css("position", "absolute");  // <<< also make it absolute!
+                    popup.css({
+                        'left': event.pageX,
+                        'top': event.pageY,
+                        'display': 'inline',
+                        'position': 'absolute'
+                    });
 
+                    popup.find(".name").text(
+                        //countries[code]
+                        map.getRegionName(code)
+                    );
+
+                    var info = visaInfo[code];
+                    if (typeof info !== "undefined") {
+                        var infoText = "<p>" + info[0] + "</p>" +
+                                "<p>" + info[1] + "</p>";
+                        popup.find(".visa-info").html(infoText);
+                    } else {
+                        popup.find(".visa-info").html("<p>No data for this country yet.</p>");
+                    }
+
+                    oldRegion = code;
                     if (window.localStorage) {
                         window.localStorage.setItem(
                             'map-selected-region',
                             code
                         );
                     }
+                },
+                onViewportChange: function(e, scale) {
+                    removePopup();
                 }
             });
-        });
-        // var map = new Datamap({
-        //     element: document.getElementById('map'),
-        //     fills: {
-        //       defaultFill: "#59D9A4",
-        //       authorHasTraveledTo: "#fa0fa0"
-        //     },
-        //     responsive: true,
-        //     geographyConfig: {
-        //         dataUrl: null, //if not null, datamaps will fetch the map JSON (currently only supports topojson)
-        //         hideAntarctica: true,
-        //         borderWidth: 1,
-        //         borderOpacity: 1,
-        //         borderColor: '#262323',
-        //         popupTemplate: function(geography, data) { //this function should just return a string
-        //           return '<div class="hoverinfo"><strong>' + geography.properties.name + '</strong></div>';
-        //         },
-        //         popupOnHover: true, //disable the popup while hovering
-        //         highlightOnHover: true,
-        //         highlightFillColor: '#FC8D59',
-        //         highlightBorderColor: 'rgba(250, 15, 160, 0.2)',
-        //         highlightBorderWidth: 2,
-        //         highlightBorderOpacity: 1
-        //     },
-        //     projection: 'mercator',
-        // });
 
-        // window.addEventListener('resize', function(event){
-        //     map.resize();
-        // });
+            map.series.regions[0].setValues(visaColors);
+
+            function removePopup() {
+                var mapObject = $('#map').vectorMap('get', 'mapObject');
+                mapObject.clearSelectedRegions();
+                popup.hide();
+                oldRegion = null;
+            }
+
+            $("#change-country").on("change", function(e){
+                var newCountry = $(this).val();
+
+                $.get("/change-country/"+newCountry, function(result){
+                    //console.log(result);
+                    removePopup();
+                    map.series.regions[0].setValues(result.visaRequirements);
+                    visaInfo = result.visaInfo;
+                }, 'json');
+            });
+
+            $(".close").on("click", function(e) {
+                console.log("e");
+                removePopup();
+            });
+        });
     </script>
 @stop
