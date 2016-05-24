@@ -2,9 +2,13 @@ html, body {
 	background-color: #262323;
 }
 
+a:hover, a:focus {
+	text-decoration: none;
+}
+
 .header {
 	margin-top: 30px;
-	margin-bottom: 100px;
+	margin-bottom: 65px;
 }
 
 .nav li {
@@ -22,15 +26,18 @@ html, body {
 
 #logo {
 	color: #fff;
+	cursor: pointer;
 }
 
 #popup {
 	display:none;
-	max-width:200px;
+	max-width:280px;
 	border:15px solid transparent;
 	border-radius: 5px;
 	background-color: #818FF0;
 	color: #fff;
+	padding-bottom:20px;
+	padding-top:10px;
 }
 
 #popup .name {
@@ -39,5 +46,26 @@ html, body {
 }
 
 #popup a {
-	color: #fff;
+	color: #e2e2e2;
+	font-size: 16px;
+	text-align:center;
+	display:block;
 }
+
+#earth {
+	margin-top:-5px;
+	width:25px;
+}
+
+.jvectormap-region {
+	stroke: white;
+	stroke-width: 0;
+}
+
+.selector {
+	color: #ffffff;
+	margin-left: 150px;
+	margin-bottom: 50px;
+}
+
+

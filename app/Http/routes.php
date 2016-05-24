@@ -13,6 +13,12 @@
 
 Route::get("/", "HomeController@index");
 
+Route::get("/detail", "HomeController@detail");
+Route::get("/chat", "HomeController@chat");
+Route::get("/scrape", "HomeController@scrape");
+Route::get("/change-country/{countryCode}", "HomeController@changeCountry");
+
+
 // Route::get('/', function () {
 //     return view('homepage');
 // });
