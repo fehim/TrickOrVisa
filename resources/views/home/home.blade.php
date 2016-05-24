@@ -20,8 +20,6 @@
 
     <div id="map" style="width: 100%;"></div>
 
-    <div id="tlkio" data-channel="trickorvisa" data-theme="theme--night" style="width:100%;height:400px;"></div><script async src="http://tlk.io/embed.js" type="text/javascript"></script>
-
     <div id="popup">
         <button type="button" class="close" aria-label="Close">
             <span aria-hidden="true">&times;</span>
@@ -54,20 +52,20 @@
             var map = new jvm.Map({
                 container: $('#map'),
                 map: 'world_mill',
-                backgroundColor: "#262323",
+                backgroundColor: "#EAE3D3",
                 zoomOnScroll: false,
                 regionStyle: {
                   initial: {
-                    fill: '#EF652C',
+                    fill: '#E39165',
                     stroke: "none",
                     "stroke-width": 0,
                     "stroke-opacity": 1
                   },
                   hover: {
-                      fill: '#818FF0'
+                      fill: '#429FB6'
                   },
                     selected: {
-                      fill: '#818FF0',
+                      fill: '#429FB6',
                       "fill-opacity": 0.8
                     },
                     selectedHover: {
