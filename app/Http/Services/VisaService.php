@@ -2,15 +2,31 @@
 
 namespace App\Services;
 
+use App\Models\Country;
 use App\Models\VisaRequirement;
 
 class VisaService extends BaseService
 {
-    public function getVisaData($countryCode)
+    public function getVisaData($location)
     {
-        $visaData = VisaRequirement::where("from", $countryCode)
+        $countryData = Country::orderBy("name", "asc")->get(["name", "code"]);
+
+        $countries = [];
+        foreach ($countryData as $country) {
+            $countries[] = $country->name;
+            $countryCodes[$country->name] = $country->code;
+        }
+
+        if (is_object($location)) {
+            $from = $location->countryCode;
+        } else {
+            $from = isset($countryCodes[$location]) ? $countryCodes[$location] : "US";
+        }
+
+        $visaData = VisaRequirement::where("from", $from)
             ->orderBy('id', 'asc')
-            ->get(["to", "type", "text", "info"]);
+            ->get(["to", "from", "type", "text", "info", "to_name"]);
+
 
         $visaRequirements = [];
         $visaInfo = [];
@@ -23,15 +39,18 @@ class VisaService extends BaseService
             } else if ($data['type'] == "maybe") {
                 $visaRequirements[$data["to"]] = "#E6B072";
             }
-
             // Get the extra data
             $visaInfo[$data["to"]] = [$data["text"], $data["info"]];
+            $from = $data["from"];
         }
-        $visaRequirements[$countryCode] = "#6DAD88";
+
+        $visaRequirements[$from] = "#6DAD88";
 
         return [
             'visaRequirements' => $visaRequirements,
-            'visaInfo' => $visaInfo
+            'visaInfo' => $visaInfo,
+            'countries' => $countries,
+            'currentLocation' => $location
         ];
     }
 }

@@ -6,16 +6,17 @@
 
 @section('header_styles')
     <link href="{{ asset('css/jquery-jvectormap-2.0.3.css') }}" rel="stylesheet" />
+    <link rel="import"
+          href="https://cdn.vaadin.com/vaadin-core-elements/master/vaadin-combo-box/vaadin-combo-box.html">
 @stop
 
 @section('content')
 
-    <div class="selector">
-        <h3>I am from</h3>
-        <select id="change-country">
-            <option value="TR">Turkey</option>
-            <option value="RO">Romania</option>
-        </select>
+    <div class="selector" id="selector">
+        <h3 class="pull-left">I am from</h3>
+        <div class="combo-container">
+            <vaadin-combo-box name="country" items='{{ json_encode($countries) }}' value="{{ $currentLocation->countryName }}" required label="..."></vaadin-combo-box>
+        </div>
     </div>
 
     <div id="map" style="width: 100%;"></div>
@@ -28,19 +29,15 @@
         <div class="visa-info">
 
         </div>
-        <a href="#">You want more?</a>
+        {{--<a href="#">You want more?</a>--}}
     </div>
-    <!-- position: relative; -->
 @endsection
 
 @section('footer_scripts')
     <script src="{{ asset('js/jquery-jvectormap-2.0.3.min.js') }}"></script>
     <script src="{{ asset('js/jquery-jvectormap-world-mill.js') }}"></script>
-    <!-- 
-    <script src=""></script>
-    <script src="{{ asset('js/topojson.min.js') }}"></script>
-    <script src="{{ asset('js/datamaps.world.min.js') }}"></script>
- -->
+
+    <script src="https://cdn.vaadin.com/vaadin-core-elements/latest/webcomponentsjs/webcomponents-lite.min.js"></script>
     <script>
         $(function(){
 
@@ -128,21 +125,29 @@
                 oldRegion = null;
             }
 
-            $("#change-country").on("change", function(e){
+            $("vaadin-combo-box").on("value-changed",function(e){
                 var newCountry = $(this).val();
 
+                if (!newCountry) {
+                    return false;
+                }
+
                 $.get("/change-country/"+newCountry, function(result){
-                    //console.log(result);
                     removePopup();
                     map.series.regions[0].setValues(result.visaRequirements);
                     visaInfo = result.visaInfo;
                 }, 'json');
             });
 
+//            $(".html").on("click", ".item", function(e){
+//               console.log($("#input").val());
+//            });
+
             $(".close").on("click", function(e) {
                 console.log("e");
                 removePopup();
             });
+
         });
     </script>
 @stop
