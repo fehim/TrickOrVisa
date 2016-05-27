@@ -3,17 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Country;
-use App\Models\VisaRequirement;
+use Location;
 use App\Services\VisaService;
 use App\Services\WikipediaScraperService;
-use Illuminate\Auth\Guard;
-use Illuminate\Container\Container;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Request;
 
-use Symfony\Component\CssSelector\Node;
-use DOMElement;
-use Symfony\Component\DomCrawler\Crawler;
 
 /**
  * Class HomeController
@@ -23,7 +17,15 @@ class HomeController extends BaseController
 {
     public function index(VisaService $visaService, $countryCode = "TR")
     {
-        $data = $visaService->getVisaData($countryCode);
+        $location = Location::get();
+        if ($location->error === true || $location->countryCode === "RD") {
+            $location = (object) [
+                'countryCode' => 'US',
+                'countryName' => 'United States'
+            ];
+        }
+
+        $data = $visaService->getVisaData($location);
         return view('home.home', $data);
     }
 
@@ -42,9 +44,9 @@ class HomeController extends BaseController
         $scraperService->scrapeVisaData();
     }
 
-    public function changeCountry(VisaService $visaService, $countryCode)
+    public function changeCountry(VisaService $visaService, $country)
     {
-        $data = $visaService->getVisaData($countryCode);
+        $data = $visaService->getVisaData($country);
 
         return new JsonResponse($data);
     }

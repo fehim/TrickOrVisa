@@ -1,5 +1,6 @@
 html, body {
 	background-color: #EAE3D3;
+	font-family: 'Lato', sans-serif;
 }
 
 a:hover, a:focus {
@@ -13,11 +14,11 @@ a:hover, a:focus {
 
 .nav li {
 	float:left;
-	font-size: 25px;
+	font-size: 20px;
 }
 
 .nav a {
-	color: #fff;
+	color: #747169;
 }
 
 .nav>li>a:focus, .nav>li>a:hover {
@@ -25,8 +26,10 @@ a:hover, a:focus {
 }
 
 #logo {
-	color: #fff;
+	color: #747169;
 	cursor: pointer;
+	margin-top:30px;
+	font-size: 30px;
 }
 
 #popup {
@@ -36,7 +39,6 @@ a:hover, a:focus {
 	border-radius: 5px;
 	background-color: #429FB6;
 	color: #fff;
-	padding-bottom:20px;
 	padding-top:10px;
 }
 
@@ -53,8 +55,8 @@ a:hover, a:focus {
 }
 
 #earth {
-	margin-top:-5px;
-	width:25px;
+	margin-top: -23px;
+	width: 40px;
 }
 
 .jvectormap-region {
@@ -63,9 +65,38 @@ a:hover, a:focus {
 }
 
 .selector {
-	color: #ffffff;
-	margin-left: 150px;
-	margin-bottom: 50px;
+	color: #747169;
+	margin-left: 300px;
+	margin-bottom: 200px;
 }
 
+.vaadin-combo-box-overlay-0 #selector.vaadin-combo-box-overlay:not([touch-device]) .item.vaadin-combo-box-overlay:hover, .vaadin-combo-box-overlay-0 #selector.vaadin-combo-box-overlay .item[focused].vaadin-combo-box-overlay {
+	background-color: transparent;
+	color: #6DAD88;
+}
+
+.paper-input-container-0 .focused-line.paper-input-container {
+	background: transparent;
+}
+
+#overlay {
+	border: none;
+	box-shadow: none;
+	background-color: rgba(255, 255, 255, 0.72);
+}
+
+.combo-container {
+	width: auto; float:left; margin-left: 10px;
+	margin-top: -10px;
+}
+
+#input.vaadin-combo-box {
+	font-size:24px;
+	color: #747169;
+	font-family: 'Lato', sans-serif !important;
+}
+
+.jvectormap-zoomin, .jvectormap-zoomout, .jvectormap-goback {
+	background-color: #E39165 !important;
+}
 

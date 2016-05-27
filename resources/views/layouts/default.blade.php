@@ -7,6 +7,8 @@
         @show
     </title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
     <!-- global level css -->
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
     {{--<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />--}}
@@ -24,10 +26,12 @@
     <div class="header clearfix">
         <nav>
             <ul class="nav pull-right">
-                <li role="presentation" class="active"><a href="/chat">Chat</a></li>
+                <li role="presentation"><a href="/">Home</a></li>
+                <li role="presentation"><a href="/chat">Chat</a></li>
                 <li role="presentation"><a href="#">Contact</a></li>
             </ul>
         </nav>
+        {{--<img id="earth" src="img/sos.png"/>--}}
         <h3 id="logo">Trick <img id="earth" src="img/logo.png"/>r Visa</h3>
     </div>
     @yield('content')
