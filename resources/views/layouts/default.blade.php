@@ -31,8 +31,7 @@
                 <li role="presentation"><a href="#">Contact</a></li>
             </ul>
         </nav>
-        {{--<img id="earth" src="img/sos.png"/>--}}
-        <h3 id="logo">Trick <img id="earth" src="img/logo.png"/>r Visa</h3>
+        <a href="/" id="logo">Trick <img id="earth" src="img/logo.png"/>r Visa</a>
     </div>
     @yield('content')
 </div>
@@ -42,13 +41,6 @@
 <!-- begin page level js -->
 @yield('footer_scripts')
 <!-- end page level js -->
-<script>
-    $(function(){
-        $("#logo").on("click", function(){
-            window.location="/";
-        });
-    });
-</script>
 
 </body>
 </html>

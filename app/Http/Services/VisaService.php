@@ -37,15 +37,20 @@ class VisaService extends BaseService
             } else if ($data['type'] == "no") {
                 $visaRequirements[$data["to"]] = "#FCA366";
             } else if ($data['type'] == "maybe") {
-                $visaRequirements[$data["to"]] = "#E6B072";
+                $visaRequirements[$data["to"]] = "#9CC08A"; //"#E6B072";
             }
             // Get the extra data
             $visaInfo[$data["to"]] = [$data["text"], $data["info"]];
             $from = $data["from"];
         }
 
-        $visaRequirements[$from] = "#6DAD88";
+        if (isset($visaInfo["DK"])) {
+            //Greenland is not a country but a denmark territory
+            $visaRequirements["GL"] = $visaRequirements["DK"];
+            $visaInfo["GL"] = $visaInfo["DK"];
+        }
 
+        $visaRequirements[$from] = "#6DAD88";
         return [
             'visaRequirements' => $visaRequirements,
             'visaInfo' => $visaInfo,
