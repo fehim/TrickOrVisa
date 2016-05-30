@@ -13,7 +13,9 @@ class WikipediaScraperService extends BaseService
     public function scrapeVisaData()
     {
         DB::table('visa_requirements')->truncate();
-        $countryData = Country::orderBy("id", "desc")->get(["code", "name", "visa_link"]);
+        $countryData = Country::orderBy("id", "desc")
+            ->whereNotNull("visa_link")
+            ->get(["code", "name", "visa_link"]);
         $client = new Client();
 
         $countryCodes = [];
@@ -74,28 +76,38 @@ class WikipediaScraperService extends BaseService
 
     public function getCountryCode($name, $codes)
     {
-        if ($name == 'Australia and territories') {
-            $name = 'Australia';
-        }
+        $name = str_ireplace(" and territories", "", $name);
 
-        if ($name == "Cote d'Ivoire ! Côte d'Ivoire") {
+        if ($name == "Cote d'Ivoire ! Côte d'Ivoire" ||
+            $name == "Côte d'Ivoire" ||
+            $name == "Cote d'Ivoire" ||
+            $name == "Ivory Coast ! Ivory Coast"
+        ) {
             $name = "Cote d'Ivoire (Ivory Coast)";
-        }
-
-        if ($name == "New Zealand and territories") {
-            $name = "New Zealand";
         }
 
         if ($name == "São Tomé and Príncipe") {
             $name = "Sao Tome and Principe";
         }
 
-        if ($name == "United States and territories") {
+        if (stristr($name, "United Kingdom")) {
+            $name = "United Kingdom";
+        }
+
+        if ($name == "United States of America") {
             $name = "United States";
         }
 
-        if (stristr($name, "United Kingdom")) {
-            $name = "United Kingdom";
+        if (stristr($name, "Burma")) {
+            $name = "Myanmar";
+        }
+
+        if (stristr($name, "Netherlands")) {
+            $name = "Netherlands";
+        }
+
+        if ($name == "Australia and external territories") {
+            $name = "Australia";
         }
 
         if(isset($codes[$name])) {
