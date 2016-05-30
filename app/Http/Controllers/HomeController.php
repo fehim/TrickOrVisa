@@ -39,11 +39,6 @@ class HomeController extends BaseController
         return view('home.chat');
     }
 
-    public function scrape(WikipediaScraperService $scraperService)
-    {
-        $scraperService->scrapeVisaData();
-    }
-
     public function changeCountry(VisaService $visaService, $country)
     {
         $data = $visaService->getVisaData($country);
