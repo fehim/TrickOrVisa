@@ -43,6 +43,9 @@
 
             visaColors = {!! json_encode($visaRequirements) !!};
             visaInfo = {!! json_encode($visaInfo) !!};
+            defaultColor = "{!! config('map.colors.default') !!}";
+            strokeColor = "{!! config('map.colors.stroke') !!}";
+            hoverColor = "{!! config('map.colors.hover') !!}";
 
         });
     </script>

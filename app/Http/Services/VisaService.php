@@ -33,11 +33,11 @@ class VisaService extends BaseService
         foreach ($visaData as $data) {
             // Color the map
             if ($data['type'] == "yes") {
-                $visaRequirements[$data["to"]] = "#9CC08A";
+                $visaRequirements[$data["to"]] = config('map.colors.yes');
             } else if ($data['type'] == "no") {
-                $visaRequirements[$data["to"]] = "#FCA366";
+                $visaRequirements[$data["to"]] = config('map.colors.no');
             } else if ($data['type'] == "maybe") {
-                $visaRequirements[$data["to"]] = "#9CC08A"; //"#E6B072";
+                $visaRequirements[$data["to"]] = config('map.colors.maybe');
             }
             // Get the extra data
             $visaInfo[$data["to"]] = [$data["text"], $data["info"]];
@@ -50,7 +50,7 @@ class VisaService extends BaseService
             $visaInfo["GL"] = $visaInfo["DK"];
         }
 
-        $visaRequirements[$from] = "#6DAD88";
+        $visaRequirements[$from] = config('map.colors.from');
         return [
             'visaRequirements' => $visaRequirements,
             'visaInfo' => $visaInfo,

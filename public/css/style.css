@@ -1,6 +1,9 @@
 html, body {
-	background-color: #EAE3D3;
 	font-family: 'Lato', sans-serif;
+}
+
+body {
+	background-image: url('../img/new.png');
 }
 
 a:hover, a:focus {
@@ -18,7 +21,7 @@ a:hover, a:focus {
 }
 
 .nav a {
-	color: #747169;
+	color: #fff;
 }
 
 .nav>li>a:focus, .nav>li>a:hover {
@@ -26,7 +29,7 @@ a:hover, a:focus {
 }
 
 #logo {
-	color: #747169;
+	color: #fff;
 	margin-top:10px;
 	font-size: 30px;
 	display: block;
@@ -60,13 +63,8 @@ a:hover, a:focus {
 	width: 40px;
 }
 
-.jvectormap-region {
-	stroke: white;
-	stroke-width: 0;
-}
-
 #selector {
-	color: #747169;
+	color: #fff;
 	width: 400px;
 	margin: 0 auto 200px auto;
 }
@@ -93,7 +91,7 @@ a:hover, a:focus {
 
 #input.vaadin-combo-box {
 	font-size:24px;
-	color: #747169;
+	color: #fff;
 	font-family: 'Lato', sans-serif !important;
 }
 
@@ -138,6 +136,6 @@ button.close {
 .about {
 	margin-left: 40px;
 	margin-bottom:20px;
-	color: #747169;
+	color: #fff;
 	font-size:18px;
 }
