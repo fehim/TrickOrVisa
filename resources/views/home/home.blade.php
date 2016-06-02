@@ -8,16 +8,39 @@
     <link href="{{ asset('css/jquery-jvectormap-2.0.3.css') }}" rel="stylesheet" />
     <link rel="import"
           href="https://cdn.vaadin.com/vaadin-core-elements/master/vaadin-combo-box/vaadin-combo-box.html">
+    <style>
+        .legend .from {
+            background-color: {!! config('map.colors.from') !!}
+        }
+
+        .legend .yes {
+            background-color: {!! config('map.colors.yes') !!}
+        }
+
+        .legend .no {
+            background-color: {!! config('map.colors.no') !!}
+        }
+
+        .legend .default {
+            background-color: {!! config('map.colors.default') !!}
+        }
+    </style>
 @stop
 
 @section('content')
 
-    <div class="selector" id="selector">
+    <div class="selector clearfix" id="selector">
         <h3 class="pull-left">I am from</h3>
         <div class="combo-container">
             <vaadin-combo-box name="country" items='{{ json_encode($countries) }}' value="{{ $currentLocation->countryName }}" required ></vaadin-combo-box>
         </div>
     </div>
+    <ul class="legend clearfix">
+        <li> <span class="from"></span> Your Country</li>
+        <li> <span class="yes"></span> Visa Free</li>
+        <li> <span class="no"></span> Visa Required</li>
+        <li> <span class="default"></span> No data</li>
+    </ul>
 
     <div id="map" style="width: 100%;"></div>
 

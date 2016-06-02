@@ -1,9 +1,13 @@
 html, body {
 	font-family: 'Lato', sans-serif;
+	-webkit-font-smoothing: antialiased;
+	color: #747169;
 }
 
 body {
-	background-image: url('../img/new.png');
+	background-color: #EAE3D3;
+	/*background: transparent url('../img/5.png') no-repeat 50% 50%;*/
+	background-size:cover;
 }
 
 a:hover, a:focus {
@@ -21,7 +25,7 @@ a:hover, a:focus {
 }
 
 .nav a {
-	color: #fff;
+	color: #747169;
 }
 
 .nav>li>a:focus, .nav>li>a:hover {
@@ -29,10 +33,11 @@ a:hover, a:focus {
 }
 
 #logo {
-	color: #fff;
+	color: #747169;
 	margin-top:10px;
 	font-size: 30px;
 	display: block;
+	float: left;
 }
 
 #popup {
@@ -64,9 +69,9 @@ a:hover, a:focus {
 }
 
 #selector {
-	color: #fff;
+	color: #747169;
 	width: 400px;
-	margin: 0 auto 200px auto;
+	margin: 0 auto 75px auto;
 }
 
 .vaadin-combo-box-overlay-0 #selector.vaadin-combo-box-overlay:not([touch-device]) .item.vaadin-combo-box-overlay:hover, .vaadin-combo-box-overlay-0 #selector.vaadin-combo-box-overlay .item[focused].vaadin-combo-box-overlay {
@@ -91,7 +96,7 @@ a:hover, a:focus {
 
 #input.vaadin-combo-box {
 	font-size:24px;
-	color: #fff;
+	color: #747169;
 	font-family: 'Lato', sans-serif !important;
 }
 
@@ -136,6 +141,52 @@ button.close {
 .about {
 	margin-left: 40px;
 	margin-bottom:20px;
-	color: #fff;
 	font-size:18px;
+}
+
+.legend {
+	width:340px;
+	margin:0 auto 20px;
+	list-style-type: none;
+	font-size:18px;
+}
+.legend li {
+	float:left;
+	margin-right:40px;
+	margin-bottom: 10px;
+}
+
+.legend span {
+	width: 15px;
+	height: 15px;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+	display: inline-block;
+}
+
+@media (max-width:460px) {
+	#logo {
+		text-align: center;
+		margin-bottom: 10px;
+		float: none;
+	}
+
+	nav {
+		float: none;
+		width: 250px;
+		margin: 0 auto;
+	}
+
+	.header {
+		margin-bottom: 0;
+	}
+
+	#selector {
+		margin-bottom: 30px;
+	}
+
+	.legend {
+		margin-bottom:0;
+	}
 }

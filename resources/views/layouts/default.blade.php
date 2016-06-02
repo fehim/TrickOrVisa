@@ -34,6 +34,7 @@
 </script>
 <div class="container">
     <div class="header clearfix">
+        <a href="/" id="logo">Trick <img id="earth" src="img/logo.png"/>r Visa</a>
         <nav>
             <ul class="nav pull-right">
                 <li role="presentation"><a href="/">Home</a></li>
@@ -41,7 +42,6 @@
                 <li role="presentation"><a href="/about">About</a></li>
             </ul>
         </nav>
-        <a href="/" id="logo">Trick <img id="earth" src="img/logo.png"/>r Visa</a>
     </div>
     @yield('content')
 </div>

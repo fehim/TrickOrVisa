@@ -12,7 +12,7 @@ $(function(){
                 fill: defaultColor,
                 stroke: strokeColor,
                 "stroke-width": 1,
-                "stroke-opacity": 0.4
+                "stroke-opacity": 0.6
             },
             hover: {
                 fill: hoverColor
