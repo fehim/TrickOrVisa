@@ -15,5 +15,6 @@ Route::get("/", "HomeController@index");
 
 Route::get("/detail", "HomeController@detail");
 Route::get("/chat", "HomeController@chat");
+Route::get("/about", "HomeController@about");
 Route::get("/change-country/{country}", "HomeController@changeCountry");
 

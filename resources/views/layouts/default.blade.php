@@ -38,7 +38,7 @@
             <ul class="nav pull-right">
                 <li role="presentation"><a href="/">Home</a></li>
                 <li role="presentation"><a href="/chat">Chat</a></li>
-                <li role="presentation"><a href="#">Contact</a></li>
+                <li role="presentation"><a href="/about">About</a></li>
             </ul>
         </nav>
         <a href="/" id="logo">Trick <img id="earth" src="img/logo.png"/>r Visa</a>

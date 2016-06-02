@@ -113,3 +113,31 @@ button.close {
 	color: white;
 	opacity: 0.8;
 }
+
+.links {
+	list-style: none;
+}
+
+.links li {
+	float: left;
+	margin-right: 10px;
+}
+
+.links a, .about a {
+	color: #333;
+}
+
+.links a:hover, .about a:hover {
+	color: #333;
+}
+
+.links i {
+	margin-right: 5px;
+}
+
+.about {
+	margin-left: 40px;
+	margin-bottom:20px;
+	color: #747169;
+	font-size:18px;
+}
