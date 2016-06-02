@@ -5,20 +5,20 @@ $(function(){
     var map = new jvm.Map({
         container: $('#map'),
         map: 'world_mill',
-        backgroundColor: "#EAE3D3",
+        backgroundColor: false,
         zoomOnScroll: false,
         regionStyle: {
             initial: {
-                fill: '#E39165',
-                stroke: "none",
-                "stroke-width": 0,
-                "stroke-opacity": 1
+                fill: defaultColor,
+                stroke: strokeColor,
+                "stroke-width": 1,
+                "stroke-opacity": 0.6
             },
             hover: {
-                fill: '#429FB6'
+                fill: hoverColor
             },
             selected: {
-                fill: '#429FB6',
+                fill: hoverColor,
                 "fill-opacity": 0.8
             },
             selectedHover: {
