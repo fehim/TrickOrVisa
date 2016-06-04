@@ -37,6 +37,10 @@ $(function(){
             if (oldRegion == code) {
                 return false;
             }
+            mixpanel.track(
+                "Country clicked",
+                {"code": code}
+            );
 
             popup.css({
                 'left': event.pageX,
@@ -50,7 +54,6 @@ $(function(){
                 map.getRegionName(code)
             );
 
-            console.log(code);
             var info = visaInfo[code];
             if (typeof info !== "undefined") {
                 var infoText = "<p>" + info[0] + "</p>" +
