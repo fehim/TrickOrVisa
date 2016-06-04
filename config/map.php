@@ -15,7 +15,7 @@ return [
         'yes' => '#9CC08A',
         'maybe' => '#9CC08A',
         'no' => '#FCA366',
-        'default' => '#E39165',
+        'default' => '#D57B4C',
         'from' => '#6DAD88',
         'hover' => '#429FB6',
         'stroke' => 'none'

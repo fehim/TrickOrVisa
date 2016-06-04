@@ -6,7 +6,7 @@ html, body {
 
 body {
 	background-color: #EAE3D3;
-	/*background: transparent url('../img/5.png') no-repeat 50% 50%;*/
+	/*background: transparent url('../img/3.png') no-repeat 50% 50%;*/
 	background-size:cover;
 }
 
@@ -145,15 +145,16 @@ button.close {
 }
 
 .legend {
-	width:340px;
+	width:380px;
 	margin:0 auto 20px;
 	list-style-type: none;
 	font-size:18px;
 }
 .legend li {
 	float:left;
-	margin-right:40px;
+	margin-right:20px;
 	margin-bottom: 10px;
+	width:150px;
 }
 
 .legend span {
