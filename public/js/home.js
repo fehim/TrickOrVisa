@@ -2,6 +2,10 @@ var popup = $("#popup");
 var oldRegion;
 
 $(function(){
+    $(".to-go").on("click", function(){
+        $("#selector").goTo();
+    });
+
     var map = new jvm.Map({
         container: $('#map'),
         map: 'world_mill',
@@ -98,6 +102,14 @@ $(function(){
         removePopup();
     });
 });
+(function($) {
+    $.fn.goTo = function() {
+        $('html, body').animate({
+            scrollTop: $(this).offset().top + 'px'
+        }, 'slow');
+        return this; // for chaining...
+    }
+})(jQuery);
 
 function fixComboWidth(text) {
     // vaadin combo box doesn't have auto width support for the input text

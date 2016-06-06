@@ -15,8 +15,8 @@ a:hover, a:focus {
 }
 
 .header {
-	margin-top: 30px;
-	margin-bottom: 65px;
+	padding-top: 30px;
+	padding-bottom: 65px;
 }
 
 .nav li {
@@ -25,7 +25,7 @@ a:hover, a:focus {
 }
 
 .nav a {
-	color: #747169;
+	color: #fff;
 }
 
 .nav>li>a:focus, .nav>li>a:hover {
@@ -33,7 +33,7 @@ a:hover, a:focus {
 }
 
 #logo {
-	color: #747169;
+	color: #fff;
 	margin-top:10px;
 	font-size: 30px;
 	display: block;
@@ -71,7 +71,7 @@ a:hover, a:focus {
 #selector {
 	color: #747169;
 	width: 400px;
-	margin: 0 auto 75px auto;
+	margin: 25px auto 50px auto;
 }
 
 .vaadin-combo-box-overlay-0 #selector.vaadin-combo-box-overlay:not([touch-device]) .item.vaadin-combo-box-overlay:hover, .vaadin-combo-box-overlay-0 #selector.vaadin-combo-box-overlay .item[focused].vaadin-combo-box-overlay {
@@ -190,4 +190,8 @@ button.close {
 	.legend {
 		margin-bottom:0;
 	}
+}
+
+.to-go {
+	cursor: pointer;
 }
