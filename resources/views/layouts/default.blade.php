@@ -66,19 +66,17 @@
         for(g=0;g<i.length;g++)f(c,i[g]);b._i.push([a,e,d])};b.__SV=1.2;a=e.createElement("script");a.type="text/javascript";a.async=!0;a.src="undefined"!==typeof MIXPANEL_CUSTOM_LIB_URL?MIXPANEL_CUSTOM_LIB_URL:"file:"===e.location.protocol&&"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js".match(/^\/\//)?"https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js":"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js";f=e.getElementsByTagName("script")[0];f.parentNode.insertBefore(a,f)}})(document,window.mixpanel||[]);
     mixpanel.init('{{ env("MIXPANEL_ANALYTICS") }}');
 </script><!-- end Mixpanel -->
-<div class="header clearfix" style="background: transparent url('/img/home.png') no-repeat 50% 54%;">
+<div class="header clearfix home-header">
     <div class="container">
         <a href="/" id="logo">Trick <img id="earth" src="img/logo-black.png"/>r Visa</a>
         <nav>
             <ul class="nav pull-right">
-                <li role="presentation"><a href="/">Home</a></li>
-                <li role="presentation"><a href="/chat">Chat</a></li>
-                <li role="presentation"><a href="/about">About</a></li>
+                <li role="presentation"><a {!!  Request::is('/') ? 'class="active"' : '' !!} href="/">Home</a></li>
+                {{--<li role="presentation"><a {!!  Request::is('chat') ? 'class="active"' : '' !!} href="/chat">Chat</a></li>--}}
+                <li role="presentation"><a {!!  Request::is('contact') ? 'class="active"' : '' !!} href="/contact">Contact</a></li>
             </ul>
         </nav>
-        <p class="to-go text-center" style="font-size: 45px;color: white;margin-top: 100px;">
-            Can't decide where to go?
-        </p>
+        @yield('topContent')
     </div>
 </div>
 <div class="container">

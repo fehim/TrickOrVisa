@@ -46,8 +46,8 @@ class HomeController extends BaseController
         return new JsonResponse($data);
     }
 
-    public function about()
+    public function contact()
     {
-        return view('home.about');
+        return view('home.contact');
     }
 }

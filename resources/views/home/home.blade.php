@@ -24,8 +24,17 @@
         .legend .default {
             background-color: {!! config('map.colors.default') !!}
         }
+        .home-header {
+            background: transparent url('/img/home.png') no-repeat 50% 54%;
+        }
     </style>
 @stop
+
+@section('topContent')
+    <p class="to-go text-center">
+        Can't decide where to go?
+    </p>
+@endsection
 
 @section('content')
 

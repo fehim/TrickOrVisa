@@ -24,8 +24,14 @@ a:hover, a:focus {
 	font-size: 20px;
 }
 
-.nav a {
+.nav > li > a {
 	color: #fff;
+	padding: 5px 20px;
+}
+
+.nav > li > a.active {
+	border: 1px solid #fff;
+	border-radius: 5px;
 }
 
 .nav>li>a:focus, .nav>li>a:hover {
@@ -119,6 +125,8 @@ button.close {
 
 .links {
 	list-style: none;
+	width: 300px;
+	margin: 0 auto;
 }
 
 .links li {
@@ -126,12 +134,8 @@ button.close {
 	margin-right: 10px;
 }
 
-.links a, .about a {
-	color: #333;
-}
-
-.links a:hover, .about a:hover {
-	color: #333;
+.links a, .about a, .links a:hover, .about a:hover {
+	color: #493165;
 }
 
 .links i {
@@ -139,9 +143,9 @@ button.close {
 }
 
 .about {
-	margin-left: 40px;
-	margin-bottom:20px;
+	margin: 150px 0 10px 40px;
 	font-size:18px;
+	color: #58466D;
 }
 
 .legend {
@@ -194,4 +198,7 @@ button.close {
 
 .to-go {
 	cursor: pointer;
+	font-size: 45px;
+	color: white;
+	margin-top: 100px;
 }
