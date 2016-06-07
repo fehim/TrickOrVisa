@@ -46,7 +46,7 @@
     </div>
     <ul class="legend clearfix">
         <li> <span class="from"></span> Your Country</li>
-        <li> <span class="yes"></span> Visa Free/E-Visa</li>
+        <li> <span class="yes"></span> Visa Free</li>
         <li> <span class="no"></span> Visa Required</li>
         <li> <span class="default"></span> No data</li>
     </ul>

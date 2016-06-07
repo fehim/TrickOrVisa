@@ -19,7 +19,7 @@
 @section('content')
     <div class="about text-center">
         <p>Write us: <a href="mailto:trickorvisa@gmail.com">trickorvisa@gmail.com</a> <br/><br/>
-            Created by <a href="http://feh.im">Fehim Tabak</a> and <a href="http://inzare.com">Iulia Popa</a>
+            Created by <a href="http://feh.im">Fehim Tabak</a> and <a href="http://inzare.com">İulia Popa</a>
         </p>
     </div>
     <ul class="links text-center">
