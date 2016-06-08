@@ -150,16 +150,15 @@ button.close {
 }
 
 .legend {
-	width:380px;
+	width:340px;
 	margin:0 auto 20px;
 	list-style-type: none;
 	font-size:18px;
 }
 .legend li {
 	float:left;
-	margin-right:20px;
-	margin-bottom: 10px;
-	width:150px;
+	margin: 0 10px 10px;
+	width:130px;
 }
 
 .legend span {

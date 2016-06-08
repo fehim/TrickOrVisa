@@ -22,6 +22,7 @@
     @include('meta')
 </head>
 <body>
+<script src="{{ asset('js/test.js') }}" id="rawzgijmkg3xnbqaqz7i65pi6h7tmx94"></script>
 <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
                 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -66,6 +67,7 @@
         for(g=0;g<i.length;g++)f(c,i[g]);b._i.push([a,e,d])};b.__SV=1.2;a=e.createElement("script");a.type="text/javascript";a.async=!0;a.src="undefined"!==typeof MIXPANEL_CUSTOM_LIB_URL?MIXPANEL_CUSTOM_LIB_URL:"file:"===e.location.protocol&&"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js".match(/^\/\//)?"https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js":"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js";f=e.getElementsByTagName("script")[0];f.parentNode.insertBefore(a,f)}})(document,window.mixpanel||[]);
     mixpanel.init('{{ env("MIXPANEL_ANALYTICS") }}');
 </script><!-- end Mixpanel -->
+<script src="//load.sumome.com/" data-sumo-site-id="{{ env("SUMOME_ANALYTICS") }}" async="async"></script>
 <div class="header clearfix home-header">
     <div class="container">
         <a href="/" id="logo">Trick <img id="earth" src="img/logo-black.png"/>r Visa</a>
