@@ -6,6 +6,7 @@
 @if(!empty($meta['description']))
     <meta property="og:description" content="{{ str_limit($meta['description'], $limit = 100, $end = '...') }}"/>
 @endif
+<meta property="og:description" content="Check which countries you can visit without a visa"/>
 @if(!empty($meta['title']))
     <meta property="og:title" content="{{ $meta['title'] }}"/>
 @else
