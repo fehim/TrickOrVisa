@@ -2,23 +2,27 @@ var popup = $("#popup");
 var oldRegion;
 
 $(function(){
+    $(".to-go").on("click", function(){
+        $("#selector").goTo();
+    });
+
     var map = new jvm.Map({
         container: $('#map'),
         map: 'world_mill',
-        backgroundColor: "#EAE3D3",
+        backgroundColor: false,
         zoomOnScroll: false,
         regionStyle: {
             initial: {
-                fill: '#E39165',
-                stroke: "none",
-                "stroke-width": 0,
-                "stroke-opacity": 1
+                fill: defaultColor,
+                stroke: strokeColor,
+                "stroke-width": 1,
+                "stroke-opacity": 0.6
             },
             hover: {
-                fill: '#429FB6'
+                fill: hoverColor
             },
             selected: {
-                fill: '#429FB6',
+                fill: hoverColor,
                 "fill-opacity": 0.8
             },
             selectedHover: {
@@ -37,6 +41,10 @@ $(function(){
             if (oldRegion == code) {
                 return false;
             }
+            mixpanel.track(
+                "Country clicked",
+                {"code": code}
+            );
 
             popup.css({
                 'left': event.pageX,
@@ -50,7 +58,6 @@ $(function(){
                 map.getRegionName(code)
             );
 
-            console.log(code);
             var info = visaInfo[code];
             if (typeof info !== "undefined") {
                 var infoText = "<p>" + info[0] + "</p>" +
@@ -95,6 +102,14 @@ $(function(){
         removePopup();
     });
 });
+(function($) {
+    $.fn.goTo = function() {
+        $('html, body').animate({
+            scrollTop: $(this).offset().top + 'px'
+        }, 'slow');
+        return this; // for chaining...
+    }
+})(jQuery);
 
 function fixComboWidth(text) {
     // vaadin combo box doesn't have auto width support for the input text

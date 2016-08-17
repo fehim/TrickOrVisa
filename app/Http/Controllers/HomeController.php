@@ -45,4 +45,9 @@ class HomeController extends BaseController
 
         return new JsonResponse($data);
     }
+
+    public function contact()
+    {
+        return view('home.contact');
+    }
 }

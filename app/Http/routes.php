@@ -12,8 +12,10 @@
 */
 
 Route::get("/", "HomeController@index");
-
-Route::get("/detail", "HomeController@detail");
+Route::get("/contact", "HomeController@contact");
+Route::get("/{to}", "HomeController@detail");
+Route::get("/{to}/from-{from}", "HomeController@detail");
 Route::get("/chat", "HomeController@chat");
 Route::get("/change-country/{country}", "HomeController@changeCountry");
+
 

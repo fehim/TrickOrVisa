@@ -1,6 +1,13 @@
 html, body {
-	background-color: #EAE3D3;
 	font-family: 'Lato', sans-serif;
+	-webkit-font-smoothing: antialiased;
+	color: #747169;
+}
+
+body {
+	background-color: #EAE3D3;
+	/*background: transparent url('../img/3.png') no-repeat 50% 50%;*/
+	background-size:cover;
 }
 
 a:hover, a:focus {
@@ -8,8 +15,8 @@ a:hover, a:focus {
 }
 
 .header {
-	margin-top: 30px;
-	margin-bottom: 65px;
+	padding-top: 30px;
+	padding-bottom: 65px;
 }
 
 .nav li {
@@ -17,8 +24,14 @@ a:hover, a:focus {
 	font-size: 20px;
 }
 
-.nav a {
-	color: #747169;
+.nav > li > a {
+	color: #fff;
+	padding: 5px 20px;
+}
+
+.nav > li > a.active {
+	border: 1px solid #fff;
+	border-radius: 5px;
 }
 
 .nav>li>a:focus, .nav>li>a:hover {
@@ -26,10 +39,11 @@ a:hover, a:focus {
 }
 
 #logo {
-	color: #747169;
+	color: #fff;
 	margin-top:10px;
 	font-size: 30px;
 	display: block;
+	float: left;
 }
 
 #popup {
@@ -60,15 +74,10 @@ a:hover, a:focus {
 	width: 40px;
 }
 
-.jvectormap-region {
-	stroke: white;
-	stroke-width: 0;
-}
-
 #selector {
 	color: #747169;
 	width: 400px;
-	margin: 0 auto 200px auto;
+	margin: 25px auto 50px auto;
 }
 
 .vaadin-combo-box-overlay-0 #selector.vaadin-combo-box-overlay:not([touch-device]) .item.vaadin-combo-box-overlay:hover, .vaadin-combo-box-overlay-0 #selector.vaadin-combo-box-overlay .item[focused].vaadin-combo-box-overlay {
@@ -112,4 +121,88 @@ a:hover, a:focus {
 button.close {
 	color: white;
 	opacity: 0.8;
+}
+
+.links {
+	list-style: none;
+	width: 257px;
+	margin: 0 auto;
+	padding-left: 0;
+}
+
+.links li {
+	float: left;
+	margin: 0 5px;
+}
+
+.links a, .about a, .links a:hover, .about a:hover {
+	color: #493165;
+}
+
+.links i {
+	margin-right: 5px;
+}
+
+.about {
+	margin: 150px 0 10px 0;
+	font-size:18px;
+	color: #58466D;
+}
+
+.legend {
+	width:340px;
+	margin:0 auto 20px;
+	list-style-type: none;
+	font-size:18px;
+}
+.legend li {
+	float:left;
+	margin: 0 10px 10px;
+	width:130px;
+}
+
+.legend span {
+	width: 15px;
+	height: 15px;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+	display: inline-block;
+}
+
+@media (max-width:460px) {
+	#logo {
+		text-align: center;
+		margin-bottom: 30px;
+		float: none;
+	}
+
+	nav {
+		float: none;
+		width: 215px;
+		margin: 0 auto;
+	}
+
+	.header {
+		margin-bottom: 0;
+	}
+
+	#selector {
+		margin-bottom: 30px;
+	}
+
+	.legend {
+		margin-bottom:0;
+	}
+
+	.about {
+		margin-top: 70px;
+	}
+}
+
+.to-go {
+	cursor: pointer;
+	font-size: 45px;
+	color: white;
+	margin-top: 100px;
 }
