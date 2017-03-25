@@ -71,7 +71,11 @@
             </tr>
             <tr>
                 <td>Languages</td>
-                <td>{{ implode(", ", $details['language']) }}</td>
+                <td>
+                    @foreach($details['language'] as $language)
+                        {{ isset($languages[$language]) ? $languages[$language] : $language }}
+                    @endforeach
+                </td>
             </tr>
             <tr>
                 <td>Timezones</td>
@@ -83,7 +87,13 @@
             </tr>
             <tr>
                 <td>Borders to</td>
-                <td>{{ implode(", ", $details['border']) }}</td>
+                <td>
+                @if (isset($details['border']))
+                    {{ implode(", ", $details['border']) }}
+                @else
+                    No borders
+                @endif
+                </td>
             </tr>
             <tr>
                 <td>Area</td>
