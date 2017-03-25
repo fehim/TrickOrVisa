@@ -38,6 +38,7 @@ class VisaTables extends Migration
      */
     public function down()
     {
-        Schema::drop('users');
+        Schema::drop('countries');
+        Schema::drop('visas');
     }
 }
