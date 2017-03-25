@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "c74342ce3bbbb442c6eb1b9f30d4f4ee",
-    "content-hash": "e3436c60e3ab6a70ac24f642e8a241b6",
+    "hash": "f6fdcd06ceb7cc588c65803c63d59307",
+    "content-hash": "b0c29b763c9fd9d853049dca4e571341",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -60,6 +60,50 @@
                 "preload"
             ],
             "time": "2015-11-09 22:51:51"
+        },
+        {
+            "name": "cmfcmf/openweathermap-php-api",
+            "version": "v2.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/cmfcmf/OpenWeatherMap-PHP-Api.git",
+                "reference": "96e95ef08e372992d5199b7da496bd196cca3ec5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/cmfcmf/OpenWeatherMap-PHP-Api/zipball/96e95ef08e372992d5199b7da496bd196cca3ec5",
+                "reference": "96e95ef08e372992d5199b7da496bd196cca3ec5",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Cmfcmf\\": "Cmfcmf"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Christian Flach (cmfcmf)",
+                    "email": "cmfcmf.flach@gmail.com",
+                    "homepage": "http://cmfcmf.github.io",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A php api to parse weather data from OpenWeatherMap.org. This api tries to normalise and abstract the data and remove inconsistencies.",
+            "homepage": "https://github.com/cmfcmf/OpenWeatherMap-PHP-Api",
+            "keywords": [
+                "OpenWeatherMap",
+                "weather",
+                "weather api"
+            ],
+            "time": "2016-04-17 14:21:08"
         },
         {
             "name": "dnoegel/php-xdg-base-dir",

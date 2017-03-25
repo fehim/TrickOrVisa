@@ -25,7 +25,7 @@
             background-color: {!! config('map.colors.default') !!}
         }
         .home-header {
-            background: transparent url('/img/home.png') no-repeat 50% 54%;
+            background: transparent url('/img/home.png') no-repeat 50% 56%;
         }
     </style>
 @stop
@@ -61,7 +61,7 @@
         <div class="visa-info">
 
         </div>
-        {{--<a href="#">You want more?</a>--}}
+        <a class="more-link" href="">More?</a>
     </div>
 @endsection
 
@@ -75,6 +75,7 @@
 
             visaColors = {!! json_encode($visaRequirements) !!};
             visaInfo = {!! json_encode($visaInfo) !!};
+            countryInfo = {!! json_encode($countryInfo) !!};
             defaultColor = "{!! config('map.colors.default') !!}";
             strokeColor = "{!! config('map.colors.stroke') !!}";
             hoverColor = "{!! config('map.colors.hover') !!}";

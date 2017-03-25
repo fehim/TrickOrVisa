@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Location;
+
 class BaseController extends Controller
 {
     public function hydrateResponse($data)
@@ -21,5 +23,18 @@ class BaseController extends Controller
         }
 
         return $response;
+    }
+
+    public function getLocation()
+    {
+        $location = Location::get();
+        if ($location->error === true || $location->countryCode === "RD") {
+            $location = (object) [
+                'countryCode' => 'US',
+                'countryName' => 'United States'
+            ];
+        }
+
+        return $location;
     }
 }

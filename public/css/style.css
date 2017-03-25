@@ -6,8 +6,6 @@ html, body {
 
 body {
 	background-color: #EAE3D3;
-	/*background: transparent url('../img/3.png') no-repeat 50% 50%;*/
-	background-size:cover;
 }
 
 a:hover, a:focus {
@@ -46,6 +44,11 @@ a:hover, a:focus {
 	float: left;
 }
 
+#logo .earth {
+	margin-top: -23px;
+	width: 40px;
+}
+
 #popup {
 	display:none;
 	max-width:280px;
@@ -69,9 +72,8 @@ a:hover, a:focus {
 	display:block;
 }
 
-#earth {
-	margin-top: -23px;
-	width: 40px;
+#popup .visa-info {
+	text-align: center;
 }
 
 #selector {
@@ -170,6 +172,13 @@ button.close {
 	display: inline-block;
 }
 
+.to-go {
+	cursor: pointer;
+	font-size: 45px;
+	color: white;
+	margin-top: 100px;
+}
+
 @media (max-width:460px) {
 	#logo {
 		text-align: center;
@@ -198,11 +207,4 @@ button.close {
 	.about {
 		margin-top: 70px;
 	}
-}
-
-.to-go {
-	cursor: pointer;
-	font-size: 45px;
-	color: white;
-	margin-top: 100px;
 }

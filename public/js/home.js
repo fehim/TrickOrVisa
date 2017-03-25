@@ -41,10 +41,12 @@ $(function(){
             if (oldRegion == code) {
                 return false;
             }
-            mixpanel.track(
-                "Country clicked",
-                {"code": code}
-            );
+            if (typeof mixpanel !== "undefined") {
+                mixpanel.track(
+                    "Country clicked",
+                    {"code": code}
+                );
+            }
 
             popup.css({
                 'left': event.pageX,
@@ -59,6 +61,8 @@ $(function(){
             );
 
             var info = visaInfo[code];
+            var country = countryInfo[code];
+            popup.find(".more-link").attr("href", "/" + country["slug"]);
             if (typeof info !== "undefined") {
                 var infoText = "<p>" + info[0] + "</p>" +
                     "<p>" + info[1] + "</p>";

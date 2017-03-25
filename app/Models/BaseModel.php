@@ -2,13 +2,13 @@
 
 namespace App\Models;
 
-use Eloquent;
+use Illuminate\Database\Eloquent\Model;
 
 /**
  * App\Models\BaseModel
  *
  */
-class BaseModel extends Eloquent
+class BaseModel extends Model
 {
 
 }

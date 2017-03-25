@@ -29,6 +29,7 @@ class ScrapeData extends Command
      */
     public function handle(WikipediaScraperService $scraper)
     {
+        $scraper->scrapeCountryData();
         $scraper->scrapeVisaData();
         $this->info('All done!');
     }
