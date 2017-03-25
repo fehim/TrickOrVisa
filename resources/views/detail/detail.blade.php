@@ -87,11 +87,11 @@
             </tr>
             <tr>
                 <td>Area</td>
-                <td>{{ $to->area }} km2</td>
+                <td>{{ number_format($to->area) }} km2</td>
             </tr>
             <tr>
                 <td>Population</td>
-                <td>{{ $to->population }} </td>
+                <td>{{ number_format($to->population) }} </td>
             </tr>
             <tr>
                 <td>Gini</td>
