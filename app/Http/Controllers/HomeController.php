@@ -88,7 +88,13 @@ class HomeController extends BaseController
 
     public function changeCountry(VisaService $visaService, $country)
     {
-        $data = $visaService->getVisaData($country);
+        $countries = Country::orderBy("name", "asc")
+            ->get([
+                "slug",
+                "code",
+                "name"
+            ]);
+        $data = $visaService->getVisaData($country, $countries);
 
         return new JsonResponse($data);
     }
