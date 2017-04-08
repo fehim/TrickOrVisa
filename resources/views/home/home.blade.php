@@ -6,8 +6,7 @@
 
 @section('header_styles')
     <link href="{{ asset('css/jquery-jvectormap-2.0.3.css') }}" rel="stylesheet" />
-    <link rel="import"
-          href="https://cdn.vaadin.com/vaadin-core-elements/master/vaadin-combo-box/vaadin-combo-box.html">
+    {{-- <link href="{{ asset('css/selectize.theme.css') }}" rel="stylesheet" /> --}}
     <style>
         .legend .from {
             background-color: {!! config('map.colors.from') !!}
@@ -39,10 +38,13 @@
 @section('content')
 
     <div class="selector clearfix" id="selector">
-        <h3 class="pull-left">I am from</h3>
-        <div class="combo-container">
-            <vaadin-combo-box name="country" items='{{ json_encode($countries) }}' value="{{ $currentLocation->countryName }}" required ></vaadin-combo-box>
-        </div>
+        <h3 class="text-center">I am from</h3>
+
+        <select id="countries">
+            @foreach ($countries as $countryCode => $countryName)
+                <option {{ $countryCode == $currentLocation ? 'selected=selected' : '' }} value="{{ $countryCode }}">{{ $countryName }}</option>
+            @endforeach
+        </select>
     </div>
     <ul class="legend clearfix">
         <li> <span class="from"></span> Your Country</li>
@@ -68,10 +70,11 @@
 @section('footer_scripts')
     <script src="{{ asset('js/jquery-jvectormap-2.0.3.min.js') }}"></script>
     <script src="{{ asset('js/jquery-jvectormap-world-mill.js') }}"></script>
-
-    <script src="https://cdn.vaadin.com/vaadin-core-elements/latest/webcomponentsjs/webcomponents-lite.min.js"></script>
+    <script src="{{ asset('js/selectize.js') }}"></script>
     <script>
         $(function(){
+
+            $('#countries').selectize();
 
             visaColors = {!! json_encode($visaRequirements) !!};
             visaInfo = {!! json_encode($visaInfo) !!};

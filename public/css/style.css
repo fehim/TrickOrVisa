@@ -82,38 +82,31 @@ a:hover, a:focus {
 	margin: 25px auto 50px auto;
 }
 
-.vaadin-combo-box-overlay-0 #selector.vaadin-combo-box-overlay:not([touch-device]) .item.vaadin-combo-box-overlay:hover, .vaadin-combo-box-overlay-0 #selector.vaadin-combo-box-overlay .item[focused].vaadin-combo-box-overlay {
-	background-color: transparent;
-	color: #6DAD88;
-}
-
-.paper-input-container-0 .focused-line.paper-input-container {
-	background: transparent;
-}
-
 #overlay {
 	border: none;
 	box-shadow: none;
 	background-color: rgba(255, 255, 255, 0.72);
 }
 
-.combo-container {
-	width: auto; float:left; margin-left: 10px;
-	margin-top: -10px;
+
+.selectize-input {
+	background-color: transparent !important;
+    outline: none;
+    border: none;
+    box-shadow: none;
+    font-size: 24px;
+    color: #747169;
+    text-align: center;
+    border-radius: 0;
 }
 
-#input.vaadin-combo-box {
-	font-size:24px;
-	color: #747169;
-	font-family: 'Lato', sans-serif !important;
+.selectize-control.single .selectize-input:after {
+	display: none;
 }
 
-#inputContainer[opened].vaadin-combo-box:not([hideclear]) #input.vaadin-combo-box {
-	padding-right: 20px;
-}
-
-#clearIcon.vaadin-combo-box {
-	right: 13px;
+.selectize-input.focus {
+	box-shadow: none;
+	border-radius: 0;
 }
 
 .jvectormap-zoomin, .jvectormap-zoomout, .jvectormap-goback {

@@ -7,13 +7,11 @@ use App\Models\VisaRequirement;
 
 class VisaService extends BaseService
 {
-    public function getVisaData($location, $countries)
+    public function getVisaData($from, $countries)
     {
         foreach ($countries as $country) {
             $countryCodes[$country->name] = $country->code;
         }
-
-        $from = isset($countryCodes[$location]) ? $countryCodes[$location] : $location->countryCode;
 
         $visaData = VisaRequirement::where("from", $from)
             ->orderBy('id', 'asc')
@@ -46,7 +44,7 @@ class VisaService extends BaseService
         return [
             'visaRequirements' => $visaRequirements,
             'visaInfo' => $visaInfo,
-            'currentLocation' => $location
+            'currentLocation' => $from
         ];
     }
 }

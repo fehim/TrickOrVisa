@@ -31,13 +31,13 @@ class HomeController extends BaseController
         $combo = [];
         $countryInfo = [];
         foreach ($countries as $country) {
-            $combo[] = $country->name;
+            $combo[$country->code] = $country->name;
             $countryInfo[$country->code] = [
                 "slug" => $country->slug,
             ];
         }
 
-        $data = $visaService->getVisaData($location, $countries);
+        $data = $visaService->getVisaData($location->countryCode, $countries);
 
         $data['countries'] = $combo;
         $data['countryInfo'] = $countryInfo;

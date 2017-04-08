@@ -86,15 +86,15 @@ $(function(){
 
     map.series.regions[0].setValues(visaColors);
 
-    fixComboWidth($("#input").val());
+    fixComboWidth($("#input").text());
 
-    $("vaadin-combo-box").on("value-changed",function(e){
+    $("#countries").on("change",function(e){
         var newCountry = $(this).val();
 
         if (!newCountry) {
             return;
         }
-        fixComboWidth(newCountry);
+        fixComboWidth($(this).text());
         $.get("/change-country/"+newCountry, function(result){
             removePopup();
             map.series.regions[0].setValues(result.visaRequirements);
@@ -129,6 +129,11 @@ function fixComboWidth(text) {
     var metrics = context.measureText(text);
     // 40 for down arrow and margins
     var newWidth = Math.round(metrics.width) + 45;
+
+    if (newWidth < 250) {
+        newWidth = 250;
+    }
+    
     $(".combo-container").width(newWidth);
     // 110 width of the text part
     $("#selector").width(110 + newWidth);

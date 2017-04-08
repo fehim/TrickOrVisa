@@ -34,6 +34,7 @@
     <!-- global level css -->
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
     {{--<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />--}}
+    <link href="{{ asset('css/selectize.css') }}" rel="stylesheet" />
     <link href="{{ asset('css/style.css') }}" rel="stylesheet" type="text/css" />
     <!-- end of global css-->
     <!-- page level styles-->
