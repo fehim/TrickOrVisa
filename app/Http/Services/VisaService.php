@@ -13,7 +13,7 @@ class VisaService extends BaseService
             $countryCodes[$country->name] = $country->code;
         }
 
-        $from = $location->countryCode;
+        $from = isset($countryCodes[$location]) ? $countryCodes[$location] : $location->countryCode;
 
         $visaData = VisaRequirement::where("from", $from)
             ->orderBy('id', 'asc')
